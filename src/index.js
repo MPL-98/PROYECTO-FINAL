@@ -6,10 +6,6 @@ const passport = require('passport');
 const session = require('express-session');
 const flash = require('connect-flash');
 
-
-
-
-
 //Inicializaciones
 const app = express();
 require('./database');
@@ -24,6 +20,7 @@ app.listen(3000);
 //Middlewears
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
+
 app.use(session({
   secret: 'misesionsecreta',
   resave: false,
@@ -44,6 +41,8 @@ app.use((req, res, next) => {
 
 //Routes
 app.use('/', require('./routes/index'));
+
+
 
 //Incio de servidor 
 console.log('SERVIDOR EN PUERTO',3000);
